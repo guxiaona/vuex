@@ -1,12 +1,7 @@
 <template>
   <div id="app">
-    <h2>--------modules中的内容--------</h2>
-    <h2>{{ $store.state.a.name }}</h2>
-    <button @click="updateName">修改名字</button>
-    <h2>{{ $store.getters.fullname }}</h2>
-    <h2>{{ $store.getters.fullname2 }}</h2>
-    <h2>{{ $store.getters.fullname3 }}</h2>
-    <button @click="asycUpdataName">异步修改</button>
+    <h2>-------------hellovuex内容------</h2>
+    <hello-vuex :counter="counter"></hello-vuex>
 
     <h2>--------app中的内容--------</h2>
     <h2>{{ message }}</h2>
@@ -14,8 +9,16 @@
     <button @click="addition">+</button>
     <button @click="subtraction">-</button>
     <button @click="addCount(5)">+5</button>
-    <button @click="addCount(10)">+10</button>
     <button @click="addStudent">添加学生</button>
+
+    
+    <h2>--------modules中的内容--------</h2>
+    <h2>{{ $store.state.a.name }}</h2>
+    <button @click="updateName">修改名字</button>
+    <h2>{{ $store.getters.fullname }}</h2>
+    <h2>{{ $store.getters.fullname2 }}</h2>
+    <h2>{{ $store.getters.fullname3 }}</h2>
+    <button @click="asycUpdataName">异步修改</button>
 
     <h2>-------------getters相关信息-------</h2>
     <h2>{{ $store.getters.powerCounter }}</h2>
@@ -27,8 +30,7 @@
     <h2>{{ $store.state.info }}</h2>
     <button @click="updateInfo">修改信息</button>
 
-    <h2>-------------hellovuex内容------</h2>
-    <hello-vuex :counter="counter"></hello-vuex>
+
   </div>
 </template>
 
@@ -55,15 +57,7 @@ export default {
       this.$store.commit("decrement");
     },
     addCount(count) {
-      // 负载payload 参数或者对象
-      // 1.普通的提交封装
       this.$store.commit("incrementCount", count);
-
-      // 2.特殊的提交封装 count 就变成了一个负载对象
-      // this.$store.commit({
-      //   type: "incrementCount",
-      //   count,
-      // });
     },
     addStudent() {
       const stu = { id: 5, name: "why5", age: 44 };

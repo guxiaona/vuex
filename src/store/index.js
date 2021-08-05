@@ -34,23 +34,3 @@ export default createStore({
         a: moduleA
     }
 })
-
-
-// 对象解构
-const obj = {
-    name: '111',
-    age: 18,
-    height: 1.88
-}
-const { name, age, height } = obj
-// console.log(name);
-// console.log(age);
-// console.log(height);
-
-// 数组解构
-const names = ['why', 'kobe', 'james']
-    // const name1=names[0]
-    // const name2=names[1]
-    // const name3=names[2]
-
-const [name1, name2, name3] = names;
